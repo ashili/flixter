@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.example.flixter.DetailActivity;
 import com.example.flixter.R;
 import com.example.flixter.models.Movie;
@@ -87,7 +88,8 @@ public class MovieAdapter extends RecyclerView.Adapter <MovieAdapter.ViewHolder>
                 imageUrl = movie.getPosterPath();
             }
             //default poster
-            Glide.with(context).load(imageUrl).into(ivPoster);
+            Glide.with(context).load(imageUrl).centerCrop().transform(new CircleCrop())
+                    .into(ivPoster);
             //1-Register the click listener o the whole row
 
 
